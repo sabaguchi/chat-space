@@ -7,7 +7,7 @@
 |name|string|index: true, null: false, unique: true|
 
 ### Association
-- has_many:group, through: member
+- has_many:groups, through: members
 - has_many:messages
 - has_many:members
 
