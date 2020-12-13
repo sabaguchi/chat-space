@@ -7,7 +7,7 @@
 |name|string|index: true, null: false, unique: true|
 
 ### Association
-- has_many:groups, through: members
+- has_many:group, through: member
 - has_many:messages
 - has_many:members
 
@@ -19,8 +19,8 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :groups
-- belongs_to :users
+- belongs_to :group
+- belongs_to :user
 
 ## groupsテーブル
 
@@ -43,5 +43,5 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :groups
-- belongs_to :users
+- belongs_to :group
+- belongs_to :user
