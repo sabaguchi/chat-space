@@ -1,0 +1,28 @@
+.main_chat
+  .main_chat__group-info
+    .main_chat__group-info__group 
+      グループG
+      .main_chat__group-info__group__user Member : gucchi
+    .main_chat__group-info__edit Edit
+  .main_chat__message-list
+    .main_chat__message-list__margin
+    .main_chat__message-list__member
+      gucchi
+      %span.main_chat__message-list__member__date 2020/12/14(Mon) 22:48
+    .main_chat__message-list__message おはよう！
+    .main_chat__message-list__member
+      yoshio
+      %span.main_chat__message-list__member__date 2020/12/14(Mon) 22:48
+    .main_chat__message-list__message お疲れ！
+    .main_chat__message-list__member
+      saba
+      %span.main_chat__message-list__member__date 2020/12/14(Mon) 22:48
+    .main_chat__message-list__message 寒いね。。
+  .main_chat__message-from
+    %form.main_chat__message-from__form
+      .main_chat__message-from__form__contents
+        %input.main_chat__message-from__form__contents__input{"placeholder": "type a message", "type": "text"}
+        %label.main_chat__message-from__form__contents__icon
+          =icon("fa", "image")
+      %input.main_chat__message-from__form__input-btn{"type": "submit", "value": "SEND"}
+
