@@ -3,17 +3,15 @@
     .side_bar__user-name__user
       =current_user.name
     .side_bar__user-name__icon
-      =link_to "#" do
+      =link_to new_group_path do
         =icon("far", "edit", class: "side_bar__user-name__icon__edit")
       =link_to edit_user_path(current_user) do
         =icon("fas", "cog", class: "side_bar__user-name__icon__cog")
   .side_bar__group-list
-    .side_bar__group-list__group
-      .side_bar__group-list__group__name グループG
-      .side_bar__group-list__group__message おはようございます。
-    .side_bar__group-list__group
-      .side_bar__group-list__group__name グループA
-      .side_bar__group-list__group__message こんにちは。
-    .side_bar__group-list__group
-      .side_bar__group-list__group__name グループH
-      .side_bar__group-list__group__message お疲れ様です。
+    - current_user.groups.each do |group|
+      .side_bar__group-list__group
+        = link_to "#" do
+          .side_bar__group-list__group__name
+            = group.name
+          .side_bar__group-list__group__message
+            メッセージはまだありません
