@@ -1,28 +1,29 @@
 .main_chat
   .main_chat__group-info
     .main_chat__group-info__group 
-      グループG
-      .main_chat__group-info__group__user Member : gucchi
-    .main_chat__group-info__edit Edit
+      = @group.name
+      .main_chat__group-info__group__user
+        %ul.main_chat__group-info__group__user__members
+          Member :
+          %li.main_chat__group-info__group__user__members__member
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
+    = link_to "Edit", edit_group_path(@group), class: "main_chat__group-info__edit"
   .main_chat__message-list
     .main_chat__message-list__margin
-    .main_chat__message-list__member
-      gucchi
-      %span.main_chat__message-list__member__date 2020/12/14(Mon) 22:48
-    .main_chat__message-list__message おはよう！
-    .main_chat__message-list__member
-      yoshio
-      %span.main_chat__message-list__member__date 2020/12/14(Mon) 22:48
-    .main_chat__message-list__message お疲れ！
-    .main_chat__message-list__member
-      saba
-      %span.main_chat__message-list__member__date 2020/12/14(Mon) 22:48
-    .main_chat__message-list__message 寒いね。。
+    =render @messages
   .main_chat__message-from
-    %form.main_chat__message-from__form
+    = form_with model: [@group, @message], html: {class: "main_chat__message-from__form"}, local: true do |f|
       .main_chat__message-from__form__contents
-        %input.main_chat__message-from__form__contents__input{"placeholder": "type a message", "type": "text"}
-        %label.main_chat__message-from__form__contents__icon
-          =icon("fa", "image")
-      %input.main_chat__message-from__form__input-btn{"type": "submit", "value": "SEND"}
+        = f.text_field :body, class: "main_chat__message-from__form__contents__input", placeholder: "type a message"
+        = f.label :image, class: "main_chat__message-from__form__contents__icon" do
+          =icon("far", "image", class: "main_chat__message-from__form__contents__icon__2")
+          = f.file_field :image, class: "main_chat__message-from__form__contents__icon__hidden"
+      = f.submit "Send", class: "main_chat__message-from__form__input-btn"
+
+
+      -#   %input.main_chat__message-from__form__contents__input{"placeholder": "type a message", "type": "text"}
+      -#   %label.main_chat__message-from__form__contents__icon
+      -#     =icon("fa", "image")
+      -# %input.main_chat__message-from__form__input-btn{"type": "submit", "value": "SEND"}
 
