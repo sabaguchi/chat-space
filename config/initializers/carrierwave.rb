@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'sabaguchisbucket'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/sabaguchisbucket'
+  config.fog_directory  = 'sabaguchibucket'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/sabaguchibucket'
 end
