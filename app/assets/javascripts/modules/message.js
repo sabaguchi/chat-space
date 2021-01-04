@@ -54,7 +54,6 @@ $(function () {
       $('form')[0].reset();
     })
     .fail(function(result) {
-      console.log(result);
       alert("メッセージ送信に失敗しました");
     });
   });
